@@ -18,4 +18,9 @@ export class UsersService {
         return user
     }
 
+    async getUserByEmail(email: string) {
+        const user = await this.usersStorage.findOne({ where: { email }, include: { all: true } })
+        return user
+    }
+
 }
